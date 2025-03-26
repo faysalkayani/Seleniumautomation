@@ -39,7 +39,7 @@ public class HomePageTest extends TestBase {
 	@Test(priority=1)
 	public void verifyHomePageTitleTest(){
 		String homePageTitle = homePage.verifyHomePageTitle();
-		Assert.assertEquals(homePageTitle, "CRMPRO","Home page title not matched");
+		Assert.assertEquals(homePageTitle, "Dashboard | TechsaCare","Home page title not matched");
 	}
 	
 	@Test(priority=2)
@@ -53,6 +53,8 @@ public class HomePageTest extends TestBase {
 		testUtil.switchToFrame();
 		contactsPage = homePage.clickOnContactsLink();
 	}
+
+	@Test
 	
 	
 	

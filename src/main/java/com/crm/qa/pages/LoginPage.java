@@ -10,20 +10,28 @@ import com.crm.qa.base.TestBase;
 public class LoginPage extends TestBase{
 	
 	//Page Factory - OR:
-	@FindBy(name="username")
+	@FindBy(xpath="//*[@id=\"UserNameOrEmail\"]")
 	WebElement username;
 	
-	@FindBy(name="password")
+	@FindBy(xpath="//*[@id=\"passwordInput\"]")
 	WebElement password;
 	
-	@FindBy(xpath="//input[@type='submit']")
+	@FindBy(xpath="//*[@id=\"kt_sign_in_submit\"]")
 	WebElement loginBtn;
 	
 	@FindBy(xpath="//button[contains(text(),'Sign Up')]")
 	WebElement signUpBtn;
-	
-	@FindBy(xpath="//img[contains(@class,'img-responsive')]")
-	WebElement crmLogo;
+
+
+	@FindBy(xpath="//*[@id=\"kt_account_profile_details_form\"]/div[5]/i")
+	WebElement eye;
+
+	@FindBy(xpath="//*[@id=\"flexRadioLg\"]")
+	WebElement checkbox;
+
+	@FindBy(xpath="//*[@id=\"kt_account_profile_details_form\"]/div[7]/a")
+
+	WebElement frgtbtn;
 	
 	//Initializing the Page Objects:
 	public LoginPage(){
@@ -34,19 +42,38 @@ public class LoginPage extends TestBase{
 	public String validateLoginPageTitle(){
 		return driver.getTitle();
 	}
-	
-	public boolean validateCRMImage(){
-		return crmLogo.isDisplayed();
-	}
-	
+
 	public HomePage login(String un, String pwd){
 		username.sendKeys(un);
 		password.sendKeys(pwd);
 		//loginBtn.click();
 		    	JavascriptExecutor js = (JavascriptExecutor)driver;
 		    	js.executeScript("arguments[0].click();", loginBtn);
-		    	
+
 		return new HomePage();
 	}
-	
+
+
+	public HomePage maskingandcheckbox(String un, String pwd){
+//		username.sendKeys(un);
+//		password.sendKeys(pwd);
+		eye.click();
+		checkbox.click();
+		//loginBtn.click();
+
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+//		js.executeScript("arguments[0].click();", loginBtn);
+
+		return new HomePage();
+	}
+
+	public HomePage forgotbutton() {
+		frgtbtn.click();
+		return new HomePage();
+	}
+
+
+	public String getErrorMessage() {
+        return "";
+    }
 }

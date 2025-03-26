@@ -51,11 +51,6 @@ public class HomePage extends TestBase {
 		return new DealsPage();
 	}
 	
-	public TasksPage clickOnTasksLink(){
-		tasksLink.click();
-		return new TasksPage();
-	}
-	
 	public void clickOnNewContactLink(){
 		Actions action = new Actions(driver);
 		action.moveToElement(contactsLink).build().perform();

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -41,11 +41,11 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");	
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kayani\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 			driver = new ChromeDriver(); 
 		}
 		else if(browserName.equals("FF")){
-			System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Kayani\\Downloads\\geckodriver-v0.36.0-win32.zip\\geckodriver.exe");
 			driver = new FirefoxDriver(); 
 		}
 		
